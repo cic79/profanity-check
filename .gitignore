@@ -108,3 +108,6 @@ venv.bak/
 
 # .idea
 .idea/
+
+# csv data set files
+profanity_check/data/*.csv
