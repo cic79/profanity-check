@@ -3,7 +3,9 @@ from joblib import dump
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import LinearSVC
+from stop_words import get_stop_words
 
+# ENGLISH
 data = pd.read_csv("clean_data_en.csv")
 texts = data["text"].astype(str)
 y = data["is_offensive"]
@@ -18,11 +20,14 @@ cclf.fit(X, y)
 dump(vectorizer, "vectorizer_en.joblib")
 dump(cclf, "model_en.joblib")
 
+# ITALIAN
 data = pd.read_csv("clean_data_it.csv")
 texts = data["text"].astype(str)
 y = data["is_offensive"]
 
-vectorizer = TfidfVectorizer(stop_words="italian", min_df=0.0001)
+stop_words = get_stop_words('it')
+
+vectorizer = TfidfVectorizer(stop_words=stop_words, min_df=0.0001)
 X = vectorizer.fit_transform(texts)
 
 model = LinearSVC(class_weight="balanced", dual=False, tol=1e-2, max_iter=1e5)

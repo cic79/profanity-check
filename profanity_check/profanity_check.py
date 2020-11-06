@@ -2,8 +2,8 @@ import joblib
 import numpy as np
 import pkg_resources
 
-vectorizer = joblib.load(pkg_resources.resource_filename('profanity_check', 'data/vectorizer.joblib'))
-model = joblib.load(pkg_resources.resource_filename('profanity_check', 'data/model.joblib'))
+vectorizer = joblib.load(pkg_resources.resource_filename('profanity_check', 'data/vectorizer_it.joblib'))
+model = joblib.load(pkg_resources.resource_filename('profanity_check', 'data/model_it.joblib'))
 
 
 def _get_profane_prob(prob):
