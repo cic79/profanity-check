@@ -111,3 +111,5 @@ venv.bak/
 
 # csv data set files
 profanity_check/data/*.csv
+tests/*.csv
+tests/*.ods
